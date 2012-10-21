@@ -2,54 +2,59 @@ $.fn.sel = function(options) {
     var defaults = {};
     var opts = $.extend(defaults, options);
     var _sel = this;
-    var _opts = _sel.find('option');
 
 
     // Object for mapping select items
-    var Sel = {
+    _sel.each(function(i, value){
+        function Sel(){
+            this.item = $(value);
+            this._opts = this.item.find('option');
+        }
 
-        initialize: function(){
-            this.hideOriginalSelect();
-            this.renderInitialState();
-        },
+            Sel.prototype.initialize = function(){
+                this.hideOriginalSelect();
+                this.renderInitialState();
+            };
 
-        hideOriginalSelect: function(){
-            _sel.hide();
-        },
+            Sel.prototype.hideOriginalSelect = function(){
 
-        renderInitialState: function(){
-            if (this.selected){
-              var template =
-                 '<div class="sel-container">'+
-                    '<div class="sel-selected">'+ this.selected[1]+
-                    '<span>▼</span></div>'+
-                '</div>';
-              $(template).insertAfter(_sel);
-              return true;
-            }
-        },
+                this.item.hide();
+            };
 
-        items: (function(){
-            var _items = {};
-             _opts.each(function(){
-                _items[$(this).prop('value')] = this.text;
-             });
-            return _items;
-        })(),
+            Sel.prototype.renderInitialState = function(){
+                if (this.selected()){
+                  var template =
+                     '<div class="sel-container">'+
+                        '<div class="sel-selected">'+ this.selected()[1]+
+                        '<span>▼</span></div>'+
+                    '</div>';
+                  $(template).insertAfter(this.item);
+                  return true;
+                }
+            };
 
-        selected: (function(){
-            var _selected = _sel.find(':selected');
+            Sel.prototype.items = function(){
+                var _items = {};
 
-            if (_selected.length>0) {
-                var key = _selected.prop('value');
-                return [key, _selected.text()];
-            }
-            else {
-                return false;
-            }
-        })()
+                 this._opts.each(function(){
+                    _items[$(this).prop('value')] = this.text;
+                 });
+                return _items;
+            };
 
-    };
-    Sel.initialize();
-    console.log(Sel.selected);
+            Sel.prototype.selected = function(){
+                var _selected = this.item.find(':selected');
+                if (_selected.length>0) {
+                    var key = _selected.prop('value');
+                    return [key, _selected.text()];
+                }
+                else {
+                    return false;
+                }
+            };
+            var sel_widget = new Sel();
+            sel_widget.initialize();
+});
+
 };
+    
