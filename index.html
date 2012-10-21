@@ -1,0 +1,46 @@
+<!DOCTYPE HTML>
+<html lang="en-US">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" type="text/css" href="sel-widget.css" media="all">
+    <script type="text/javascript" src="jquery-1.8.2.min.js"></script>
+    <script type="text/javascript" src="sel-widget.js"></script>
+    <title>Chosen widget</title>
+</head>
+<body>
+
+<div id="wrap">
+
+  <div class="sel-container">
+      <div class="sel-selected">Kyiv<span id="show-results">▼</span></div>
+  </div>
+
+  <div class="sel-container">
+      <div class="sel-selected active">Simferopol<span id="hide-results">▲</span></div>
+      <div class="sel-results">
+        
+        <input type="text" class="sel-search" placeholder="enter another city">
+        <ul class="sel-list">
+            <li class="">Kyiv</li>
+            <li class="active">Simferopol</li>
+            <li>Rivne</li>
+            <li>Paris</li>
+            <li>London</li>
+        </ul>
+      </div>
+  </div>
+</div>
+
+<select>
+    <option  value="1">Ukraine</option>
+    <option selected value="2">Russia</option>
+</select>
+
+<script type="text/javascript">
+    $(function(){
+        $('select').sel();
+
+    });
+</script>
+</body>
+</html>

@@ -1,0 +1,99 @@
+#wrap {
+   width: 500px;
+   margin: 10px auto;
+}
+.sel-container {
+    font: 12px/1 Arial;
+    color: #666;
+
+    position: relative;
+
+    float: left;
+    margin-right: 30px;    
+}
+.sel-selected { 
+
+    width: 80px;
+    
+    padding: 4px 18px 4px 8px;
+    position: relative;
+
+    cursor: pointer;
+    overflow: hidden;
+    text-overflow:ellipsis;
+    white-space: nowrap;
+
+    border-radius: 4px;
+    box-shadow: 0 0 1px rgba(0,0,0,.7) inset;
+
+    background: -webkit-linear-gradient(top, rgba(254,254,254,1) 1%, rgba(224,224,224,1) 100%); 
+    background: -moz-linear-gradient(top, rgba(254,254,254,1) 1%, rgba(224,224,224,1) 100%); 
+    background: -webkit-gradient(linear, left top, left bottom, color-stop(1%,rgba(254,254,254,1)), color-stop(64%,rgba(236,236,236,1)), color-stop(100%,rgba(224,224,224,1)));
+    background:  linear-gradient(to bottom, rgba(254,254,254,1) 1%, rgba(224,224,224,1) 100%); 
+}        
+.sel-selected.active {
+
+    border-bottom: 1px solid #ccc;
+
+    box-shadow: 1px 1px 1px rgba(0,0,0,.5) inset;    
+
+    background: -webkit-linear-gradient(top, rgba(220,220,220,1) 0%, rgba(251,251,251,1) 100%);
+    background: -moz-linear-gradient(top, rgba(220,220,220,1) 0%, rgba(251,251,251,1) 100%);
+    background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,rgba(220,220,220,1)), color-stop(15%,rgba(236,236,236,1)), color-stop(100%,rgba(251,251,251,1)));
+    background: linear-gradient(to bottom,  rgba(220,220,220,1) 0%, rgba(251,251,251,1) 100%); 
+}
+.sel-selected span {
+    position: absolute;
+    
+    right: 1px;
+    top: 3px;
+
+    font-size: 10px;
+
+    cursor: pointer;
+
+    padding: 2px;
+   
+}
+.sel-results {
+
+    width: 140px;
+
+    background: #fff;
+    margin: 2px 0 0 0;
+
+    box-shadow: 0 0 1px rgba(0,0,0,.5), 0 0 1px rgba(0,0,0,1);
+
+    border: 1px solid #ccc;
+    border-radius: 4px;
+
+}
+.sel-search {
+    border: 1px solid #C7C7C7;
+
+    margin: 6px 4px;
+
+    outline: medium none;
+
+    padding: 2px 3px;
+    box-shadow: 1p 1px 1px red;
+
+    cursor: pointer;
+
+    font: 12px/1 Arial,sans-serif
+}
+.sel-list {
+    padding: 0;
+    margin: 0 0 4px 0;
+    list-style: none outside none;
+
+    max-height: 100px;
+    overflow-y: auto;
+}
+.sel-list li {
+    padding: 2px 4px;
+    cursor: pointer;
+}
+.sel-list .active {
+    background: #a7d3ff;
+}
