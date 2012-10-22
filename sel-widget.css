@@ -9,11 +9,14 @@
     position: relative;
 
     float: left;
-    margin-right: 30px;    
+    margin-right: 30px;  
+
+    width: 142px;  
 }
 .sel-selected { 
 
     width: 80px;
+    height: 12px;
     
     padding: 5px 18px 5px 8px;
     position: relative;
