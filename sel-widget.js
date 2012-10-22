@@ -24,6 +24,7 @@ $.fn.sel = function(options) {
         Sel.prototype.toggleInnerList = function(){
             $('.sel-selected').live('click', function(){
                 $(this).siblings('.sel-results').toggle();
+                $(this).toggleClass('active');
             });
         };
 
